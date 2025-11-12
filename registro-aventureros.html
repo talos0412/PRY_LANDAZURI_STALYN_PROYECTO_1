@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REGISTRO AVENTUREROS</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="public/icono/icon.ico">
+</head>
+<body class="bg-light">
+
+  <header class="container text-center py-4">
+    <img src="public/img/aventureros.png" alt="Logo" class="img-fluid mb-3">
+    <h1>Club de Aventureros</h1>
+    <h1>Unete al mejor club del pais, solo para los mas arriesgados</h1>
+  </header>
+
+  <nav aria-label="Principal" class="bg-dark">
+    <div class="container">
+      <ul class="nav justify-content-center py-2">
+        <li class="nav-item"><a class="nav-link text-white" href="#">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Nuestros viajes</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">Contactanos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+
+    <form action="server.html" class="bg-white border rounded-3 p-4 shadow-sm">
+
+      <fieldset class="mb-4">
+        <h2 class="h5 mb-3">Datos personales</h2>
+
+        <div class="mb-3">
+          <label for="nombre" class="form-label" title="Solo letras, espacios. Min 3 y max 60 caracteres.">Ingrese su nombre:</label>
+          <input type="text" name="nombre" id="nombre" placeholder="nombre" minlength="3" maxlength="60"
+          value="Stalyn Landazuri" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+          title="Solo letras, espacios. Min 3 y max 60 caracteres." required class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="edad" class="form-label" title="Ingrese una edad entre 10 y 100 años.">Ingrese su edad:</label>
+          <input type="number" name="edad" id="edad" min="10" max="100" value="22" required
+          placeholder="Edad (10-100)" title="Ingrese una edad entre 10 y 100 años." class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="pais" class="form-label" title="Seleccione su pais.">Seleccione su pais:</label>
+          <select name="pais" id="pais" required title="Seleccione su pais." class="form-select">
+            <option value="EC" selected>Ecuador</option>
+            <option value="PE">Peru</option>
+            <option value="AR">Venezuela</option>
+            <option value="OT">Otro</option>
+          </select>
+        </div>
+
+        <p class="mb-2" title="Seleccione su genero.">Seleccione su genero:</p>
+        <div class="mb-2">
+          <div class="form-check form-check-inline">
+            <input type="radio" name="genero" id="masculino" value="Masculino" checked required title="Seleccione su genero." class="form-check-input">
+            <label for="masculino" class="form-check-label">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="genero" id="femenino" value="Femenino" title="Seleccione su genero." class="form-check-input">
+            <label for="femenino" class="form-check-label">Femenino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" name="genero" id="otro" value="Otro" title="Seleccione su genero." class="form-check-input">
+            <label for="otro" class="form-check-label">Otro</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-4">
+        <h2 class="h5 mb-3">Crear cuenta</h2>
+
+        <div class="mb-3">
+          <label for="correo" class="form-label" title="Ingrese un correo valido.">Ingrese su correo:</label>
+          <input type="email" name="correo" id="correo" placeholder="correo@ejemplo.com"
+          value="stalynpepe1105@hotmail.com" title="Ingrese un correo valido." required class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label" title="Al menos una mayúscula, una minúscula, un número y un símbolo. Mínimo 8 caracteres.">Ingrese su contraseña:</label>
+          <input type="password" name="password" id="password" placeholder="Contraseña" required minlength="8"
+          pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}" value="Contraseña1@" 
+          title="Al menos una mayúscula, una minúscula, un número y un símbolo. Mínimo 8 caracteres." class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="confirmacion" class="form-label" title="Debe ser igual a la contraseña anterior y cumplir las mismas reglas.">Confirme contraseña:</label>
+          <input type="password" name="confirmacion" id="confirmacion" placeholder="Repita contraseña" required minlength="8"
+          pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}" value="Contraseña1@"
+          title="Debe ser igual a la contraseña anterior y cumplir las mismas reglas." class="form-control">
+        </div>
+      </fieldset>
+
+      <fieldset class="mb-3">
+        <h2 class="h5 mb-3">Condiciones de uso</h2>
+
+        <div class="form-check">
+          <input type="checkbox" name="terminos" id="terminos" required title="Debe aceptar para continuar." checked class="form-check-input">
+          <label for="terminos" title="Debe aceptar para continuar." class="form-check-label">Aceptar terminos</label>
+        </div>
+      </fieldset>
+
+      <div class="mt-3">
+        <input type="submit" value="Enviar formulario" class="btn btn-primary">
+        <input type="reset" name="reset" id="reset" value="Resetear" class="btn btn-outline-secondary">
+      </div>
+
+    </form>
+  </main>
+
+  <aside class="container my-4">
+    <section class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="h5">Beneficios</h2>
+        <ul class="mb-0">
+          <li>Retos diarios</li>
+          <li>Mejoras tu salud</li>
+          <li>Haces amigos</li>
+          <li>Somos una familia</li>
+        </ul>
+      </div>
+    </section>
+  </aside>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">Autor: Stalyn Landazuri, derechos reservados</p>
+  </footer>
+
+</body>
+</html>
